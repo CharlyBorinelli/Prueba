@@ -12,3 +12,8 @@ def devolver_top_n_variacion(df, n=10, es_de_baja=True):
   data["variacion"]  = data["Close"].pct_change() * 100 
   data.dropna(inplace=True)
   return data.sort_values("variacion", ascending = es_de_baja ).head(n)
+----------------------------------
+import pickle
+
+with open("archivito.dat", "wb") as archivo:
+  pickle.dump(data, archivo)
